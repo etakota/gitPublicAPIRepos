@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Github Repos</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/scripts.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body ng-app="repos">
+    <div class="container" ng-controller="reposController">
+
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12">
+                    <form ng-submit="getUser()">
+                        <input type="text" name="name" ng-model="inputValue" />
+                        <button type="submit">Get Repos</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            {{error}}<br />
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Repos</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>Full Name</td>
+                                        <td>Created At</td>
+                                        <td>Description</td>
+                                        <td>URL</td>
+                                        <td>Forks</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="repo in repos">
+                                        <td>{{repo.id}}</td>
+                                        <td>{{repo.full_name}}</td>
+                                        <td>{{repo.created_at}}</td>
+                                        <td>{{repo.description}}</td>
+                                        <td>{{repo.url}}</td>
+                                        <td>{{repo.forks_count}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>                            
+         </div>
+      </div>
+</body>
+</html>
